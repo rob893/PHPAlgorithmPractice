@@ -248,6 +248,46 @@ final class PrepTest extends TestCase
 	{
 		$this->assertEquals(false, Prep::isIsomorphic("foo", "bar"));
 	}
+
+	public function testComputeBinary(): void
+	{
+		$this->assertEquals("1", Prep::computeBinary(1));
+	}
+
+	public function testComputeBinary2(): void
+	{
+		$this->assertEquals("10", Prep::computeBinary(2));
+	}
+
+	public function testComputeBinary3(): void
+	{
+		$this->assertEquals("0", Prep::computeBinary(0));
+	}
+
+	public function testComputeBinary4(): void
+	{
+		$this->assertEquals("110100", Prep::computeBinary(52));
+	}
+
+	public function testFirstNonRepChar(): void
+	{
+		$this->assertEquals("a", Prep::firstNonRepeatedChar("abc"));
+	}
+
+	public function testFirstNonRepChar2(): void
+	{
+		$this->assertEquals("", Prep::firstNonRepeatedChar("aabbcc"));
+	}
+
+	public function testFirstNonRepChar3(): void
+	{
+		$this->assertEquals("a", Prep::firstNonRepeatedChar("abbc"));
+	}
+
+	public function testFirstNonRepChar4(): void
+	{
+		$this->assertEquals("", Prep::firstNonRepeatedChar(""));
+	}
 }
 
 

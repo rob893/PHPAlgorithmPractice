@@ -435,6 +435,55 @@ class Prep
 		
 		return true;
 	}
+
+	public static function computeBinary(int $val): string
+	{
+		if($val == 0)
+		{
+			return "0";
+		}
+		
+		$result = "";
+		
+		while((int)$val != 0)
+		{
+			$result .= $val % 2;
+			(int)$val /= 2;
+		}
+
+		return strrev($result);
+	}
+
+	public static function firstNonRepeatedChar(string $str): string
+	{
+		$map = [];
+		$result = "";
+
+		for($i = 0; $i < strlen($str); $i++)
+		{
+			$char = $str[$i];
+
+			if(array_key_exists($char, $map))
+			{
+				$map[$char]++;
+			}
+			else
+			{
+				$map[$char] = 1;
+			}
+		}
+
+		foreach($map as $char => $numReps)
+		{
+			if($numReps == 1)
+			{
+				$result = $char;
+				break;
+			}
+		}
+
+		return $result;			
+	}
 }
 
 ?>
